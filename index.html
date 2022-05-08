@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>COG model</title>
+  <link rel="icon" href="D:\ENV PROJECT\ENV FINAL\Resources\favicon.ico">
+  <link rel="stylesheet" href="D:\ENV PROJECT\ENV FINAL\styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Montserrat:wght@300;900&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="header">
+    <h1 class="title">Model for the Optimization of Biomass Supply Chain</h1>
+    <div class="description">
+      <h2>This Model allows you to find the optimal location for locating the new facility by using center of gravity method to reduce the overall travelling distance
+        , hence optimizing the supply chain. </h2>
+    </div>
+    <div class="Pattern">
+    </div>
+
+  </div>
+
+  <div id="wrapper">
+    <div class="designing">
+      <div class="TitleM">
+        <h2>Facility Optimal Location Calculator</h2>
+
+      </div>
+      <table class="padding-table">
+        <tr>
+          <td>
+            <h4>Number of BSPs</h4>
+          </td>
+          <td><input type="number" name="" id="four" value=""></td>
+        </tr>
+        <tr>
+          <td>
+            <h4>x1</h4>
+          </td>
+          <td><input type="number" id="x1" value=""></td>
+          <td>
+            <h4>y1</h4>
+          </td>
+
+          <td><input type="number" name="" id="y1" value=""></td>
+
+        </tr>
+        <tr>
+          <td class="spacef">
+            <h4>x2</h4>
+          </td>
+          <td><input type="number" name="" id="x2" value=""></td>
+
+
+
+          <td>
+            <h4>y2</h4>
+          </td>
+          <td><input type="number" name="" id="y2" value=""></td>
+        </tr>
+        <tr>
+          <td class="spacef">
+            <h4>x3</h4>
+          </td>
+          <td><input type="number" name="" id="x3" value=""></td>
+
+
+
+          <td>
+            <h4>y3</h4>
+          </td>
+          <td><input type="number" name="" id="y3" value=""></td>
+        </tr>
+        <tr>
+          <td class="spacef">
+            <h4>x4</h4>
+          </td>
+          <td><input type="number" name="" id="x4" value=""></td>
+
+
+
+          <td>
+            <h4>y4</h4>
+          </td>
+          <td><input type="number" name="" id="y4" value=""></td>
+        </tr>
+
+        <tr>
+          <td>
+            <h4>l1</h4>
+          </td>
+          <td><input type="number" name="" id="l1" value=""></td>
+          <td class="spacef">
+            <h4> l2 </h4>
+          </td>
+          <td><input type="number" name="" id="l2" value=""></td>
+        </tr>
+        <tr>
+          <td>
+            <h4>l3</h4>
+          </td>
+          <td><input type="number" name="" id="l3" value=""></td>
+          <td>
+            <h4> l4</h4>
+          </td>
+          <td><input type="number" name="" id="l4" value=""></td>
+        </tr>
+        <tr>
+          <td><button type="submit" onclick="fun()" class="button1" />Submit</button></td>
+        </tr>
+
+
+
+
+      </table>
+
+      <div class="result11">
+        <h4>The x-coordinate of the facility is <div id="result1"> ? </div>
+        </h4>
+
+      </div>
+      <div class="result22">
+        <h4>The y-coordinate of the facility is <div id="result2"> ? </div>
+        </h4>
+
+      </div>
+
+    </div>
+  </div>
+  <hr>
+  <div class="graph_link">
+    <h2 class="anchor">For graphical representation of this problem click </h2><a class = " anchorh" href="D:\ENV PROJECT\ENV FINAL\graph.html"> here</a>
+
+  </div>
+  <div class="graph_gif">
+    <img src="D:\ENV PROJECT\ENV FINAL\Resources\grapgh gif.gif" alt="">
+  </div>
+
+
+
+  <div class="footer">
+    <a class="footer-link" href="https://www.linkedin.com/">LinkedIn</a>
+      <a class="footer-link" href="https://twitter.com/">Twitter</a>
+      <a class="footer-link" href="https://www.appbrewery.co/">Website</a>
+      <p class="copyright">© Yatharth Tomar.</p>
+  </div>
+
+
+  <script>
+    function fun() {
+      var x = [];
+      var y = [];
+      var l = [];
+      var sum1 = 0;
+      var sum2 = 0;
+      var sum3 = 0;
+      var i = 0;
+      var n = document.getElementById('four').value;
+
+
+      x[0] = document.getElementById("x1").value;
+      y[0] = document.getElementById("y1").value;
+      x[1] = document.getElementById("x2").value;
+      y[1] = document.getElementById("y2").value;
+      l[0] = document.getElementById("l1").value;
+      l[1] = document.getElementById("l2").value;
+      x[2] = document.getElementById("x3").value;
+      x[3] = document.getElementById("x4").value;
+      y[2] = document.getElementById("y3").value;
+      y[3] = document.getElementById("y4").value;
+      l[2] = document.getElementById("l3").value;
+      l[3] = document.getElementById("l4").value;
+
+      for (i = 0; i < n; i++) {
+
+        sum1 = sum1 + (x[i] * l[i]);
+        sum2 = sum2 + parseInt(l[i]);
+        sum3 = sum3 + (y[i] * l[i]);
+
+      }
+
+
+      var xresult = sum1 / sum2;
+      var yresult = sum3 / sum2;
+
+
+
+      alert(xresult);
+      alert(yresult);
+
+
+      document.getElementById('result1').innerHTML = xresult;
+      document.getElementById('result2').innerHTML = yresult;
+
+    }
+  </script>
+
+
+
+
+</body>
+
+</html>

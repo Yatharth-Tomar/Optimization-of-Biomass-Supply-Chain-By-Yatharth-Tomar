@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="D:\ENV PROJECT\ENV FINAL\styles.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var x = [];
+        var y = [];
+        var l =[];
+        var n = prompt("Enter number of locations");
+        var i;
+        var sum1=0;
+        var sum2 = 0;
+        var sum3 = 0;
+        for(i=0;i<n;i++)
+        {
+           x[i] = prompt("Enter value of x- coordinate");
+           y[i] = prompt("Enter value of y- cordinate");
+           l[i]= prompt("Enter approx total weight transported");
+        }
+        for (i = 0; i < n; i++)
+         {
+
+          sum1 = sum1 + (x[i] * l[i]);
+          sum2 = sum2 + parseInt(l[i]);
+          sum3 = sum3 + (y[i] * l[i]);
+
+        }
+        var xresult = sum1 / sum2;
+        var yresult = sum3 / sum2;
+        alert(xresult);
+        alert(yresult);
+
+
+        var data = google.visualization.arrayToDataTable([
+          ['X - axis', 'Y - Axis'],
+          [ parseInt(x[0]),   parseInt(y[0]) ],
+          [ parseInt(x[1]),   parseInt(y[1])],
+          [ parseInt(x[2]),   parseInt(y[2])],
+          [ parseInt(x[3]),   parseInt(y[3])],
+          [ parseInt(xresult),   parseInt(yresult)],
+        ]);
+
+        var options = {
+          title: 'X vs. Y',
+          hAxis: {title: 'X - axis', minValue: 0, maxValue: 500},
+          vAxis: {title: 'Y - axis', minValue: 0, maxValue: 500},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <h2 class = title_graph>Graphical representaion for the location of all facility</h2>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
